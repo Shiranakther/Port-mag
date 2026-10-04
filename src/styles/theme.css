@@ -1,0 +1,77 @@
+:root {
+  /* Fonts */
+  --font-main: 'Inter', Arial, sans-serif;
+  --font-script: 'Rouge Script', 'Dancing Script', cursive;
+  --font-signature: 'Dancing Script', cursive;
+
+  /* Backgrounds */
+  --color-bg-base: #04122b;
+  --color-bg-gradient-1: #041330;
+  --color-bg-gradient-2: #06214a;
+  --color-bg-gradient-3: #0a2d5e;
+  --color-bg-gradient-4: #0b2a52;
+  --color-bg-glow-blue: rgba(120, 160, 210, 0.45);
+  --color-bg-glow-green: rgba(90, 140, 70, 0.45);
+  --color-bg-glow-warm: rgba(230, 190, 90, 0.18);
+  --color-overlay-left: rgba(3, 14, 36, 0.85);
+  --color-overlay-left-mid: rgba(3, 14, 36, 0.55);
+  --color-overlay-bottom: rgba(3, 12, 32, 0.85);
+  --color-overlay-transparent: rgba(3, 14, 36, 0);
+
+  /* Brand / accent */
+  --color-primary: #1a7bff;
+  --color-accent: #1c86ff;
+  --color-accent-light: #3d95ff;
+  --color-icon-bg: #1a6fe8;
+  --color-primary-shadow: rgba(26, 123, 255, 0.4);
+
+  /* Text */
+  --color-text: #ffffff;
+  --color-text-quote: #e8eefb;
+  --color-text-muted: #b5c3dd;
+  --color-text-card-num: #c7d4ec;
+  --color-text-card-sub: #c3d0e8;
+  --color-text-footer: #d6e0f4;
+
+  /* Surfaces */
+  --color-card-bg: rgba(8, 28, 66, 0.72);
+  --color-card-border: rgba(90, 140, 230, 0.45);
+  --color-pill-bg: rgba(15, 40, 80, 0.8);
+  --color-pill-border: rgba(255, 255, 255, 0.12);
+  --color-divider: rgba(255, 255, 255, 0.2);
+}
+
+
+[data-theme="light"] {
+  --color-bg-base: #f0f4f8;
+  --color-bg-gradient-1: #e8eef5;
+  --color-bg-gradient-2: #dce4f0;
+  --color-bg-gradient-3: #cdd8ea;
+  --color-bg-gradient-4: #d4dfee;
+  --color-bg-glow-blue: rgba(120, 160, 210, 0.15);
+  --color-bg-glow-green: rgba(90, 140, 70, 0.12);
+  --color-bg-glow-warm: rgba(230, 190, 90, 0.08);
+  --color-overlay-left: rgba(240, 244, 248, 0.85);
+  --color-overlay-left-mid: rgba(240, 244, 248, 0.55);
+  --color-overlay-bottom: rgba(240, 244, 248, 0.85);
+  --color-overlay-transparent: rgba(240, 244, 248, 0);
+
+  --color-primary: #1a6fe8;
+  --color-accent: #1570c2;
+  --color-accent-light: #2d88e0;
+  --color-icon-bg: #1a6fe8;
+  --color-primary-shadow: rgba(26, 111, 232, 0.25);
+
+  --color-text: #1a2a3e;
+  --color-text-quote: #2c3e56;
+  --color-text-muted: #5a6f8a;
+  --color-text-card-num: #4a6080;
+  --color-text-card-sub: #506a88;
+  --color-text-footer: #3a5070;
+
+  --color-card-bg: rgba(255, 255, 255, 0.82);
+  --color-card-border: rgba(26, 111, 232, 0.25);
+  --color-pill-bg: rgba(255, 255, 255, 0.85);
+  --color-pill-border: rgba(0, 0, 0, 0.1);
+  --color-divider: rgba(0, 0, 0, 0.12);
+}

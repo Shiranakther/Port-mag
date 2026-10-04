@@ -1,0 +1,42 @@
+.page {
+  position: relative;
+  min-height: max(100vh, 950px);
+  width: 100%;
+  background: var(--color-bg-base);
+  overflow: hidden;
+}
+
+.page-bg {
+  position: absolute;
+  inset: -20px; /* Slight negative inset to prevent blur edges from showing */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(12px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--color-overlay-transparent) 40%, var(--color-overlay-bottom) 100%);
+  pointer-events: none;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--color-overlay-left) 0%, var(--color-overlay-left-mid) 45%, var(--color-overlay-transparent) 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .page {
+    min-height: 1100px;
+  }
+}

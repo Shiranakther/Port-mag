@@ -1,0 +1,31 @@
+.top-bar {
+  position: absolute;
+  top: 30px;
+  right: 48px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  z-index: 6;
+}
+
+.theme-toggle {
+  background: none;
+  border: 0;
+  color: var(--color-text);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-pill-bg);
+  border: 1px solid var(--color-pill-border);
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-size: 15px;
+  color: var(--color-text);
+  cursor: pointer;
+}
