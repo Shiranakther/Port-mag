@@ -1,0 +1,47 @@
+.stats {
+  position: absolute;
+  left: 4.2%;
+  top: 590px;
+  z-index: 5;
+  display: flex;
+}
+
+.stat {
+  padding: 0 28px;
+  border-left: 1px solid var(--color-divider);
+  min-width: 118px;
+}
+
+.stat:first-child {
+  padding-left: 0;
+  border: 0;
+}
+
+.stat svg {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.stat b {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.stat small {
+  display: block;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+}
+
+@media (max-width: 1100px) {
+  .stats {
+    top: auto;
+    bottom: 520px;
+    left: 20px;
+    flex-wrap: wrap;
+    row-gap: 20px;
+  }
+}
