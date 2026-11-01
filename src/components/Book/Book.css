@@ -591,9 +591,17 @@
    Mobile Version (Single Page Turn under ~760px)
    ========================================================================== */
 @media (max-width: 760px) {
+  .book-section {
+    min-height: auto;
+    padding: 10px 10px 80px 10px;
+    user-select: auto;
+    -webkit-user-select: auto;
+  }
+
   .book-stage {
     width: min(440px, 94vw);
-    height: min(580px, 74vh);
+    height: min(580px, 72vh);
+    touch-action: pan-y pinch-zoom;
   }
 
   .book-container {
@@ -611,6 +619,7 @@
     height: 100%;
     perspective: 1600px;
     transform-style: preserve-3d;
+    touch-action: pan-y pinch-zoom;
   }
 
   .mobile-page-card {
@@ -629,6 +638,18 @@
     -webkit-backdrop-filter: blur(14px);
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
     overflow: hidden;
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .book-page-body {
+    user-select: auto;
+    -webkit-user-select: auto;
+  }
+
+  .page-content {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 
   .mobile-page-card.is-dragging {

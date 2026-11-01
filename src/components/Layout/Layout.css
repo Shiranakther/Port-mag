@@ -40,20 +40,32 @@
     min-height: 1100px;
   }
 }
+
 @media (max-width: 768px) {
   .page {
     display: flex;
     flex-direction: column;
     height: auto;
     min-height: 100vh;
-    padding: 100px 20px 120px 20px;
-    gap: 40px;
-    overflow-y: auto;
+    padding: 85px 18px 100px 18px;
+    gap: 36px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
   }
+
+  .page-bg {
+    position: fixed;
+    inset: -20px;
+  }
+
   .page::before {
+    position: fixed;
     background: linear-gradient(180deg, var(--color-overlay-left) 0%, var(--color-overlay-transparent) 100%);
   }
+
   .page::after {
+    position: fixed;
     background: linear-gradient(0deg, var(--color-overlay-bottom) 0%, var(--color-overlay-transparent) 100%);
   }
 }

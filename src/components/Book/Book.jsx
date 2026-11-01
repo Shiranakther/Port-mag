@@ -250,11 +250,11 @@ export default function Book({ profile, onBackHome }) {
 
     // Detect gesture intent
     if (d.intent === null) {
-      if (Math.abs(dy) > 8 && Math.abs(dy) > Math.abs(dx)) {
+      if (Math.abs(dy) > 7 && Math.abs(dy) >= Math.abs(dx)) {
         d.intent = 'scroll';
-        return; // Allow native vertical scrolling
+        return; // Allow native vertical scrolling with zero interference
       }
-      if (Math.abs(dx) > 8 && Math.abs(dx) >= Math.abs(dy)) {
+      if (Math.abs(dx) > 9 && Math.abs(dx) > Math.abs(dy)) {
         d.intent = 'turn';
         d.isDragging = true;
         try {
@@ -267,7 +267,9 @@ export default function Book({ profile, onBackHome }) {
 
     if (d.intent !== 'turn' || !d.isDragging) return;
 
-    e.preventDefault();
+    if (e.cancelable) {
+      e.preventDefault();
+    }
 
     const stageWidth = stageRef.current ? stageRef.current.clientWidth : 800;
     const halfWidth = isMobile ? stageWidth : stageWidth / 2;
@@ -320,26 +322,40 @@ export default function Book({ profile, onBackHome }) {
     const d = dragRef.current;
     if (d.pointerId === null || d.pointerId !== e.pointerId) return;
 
+    const dx = e.clientX - d.startX;
+    const dy = e.clientY - d.startY;
+
     if (d.intent === 'turn' && dragState) {
       if (isMobile) {
         if (dragState.direction === 'forward') {
-          if (dragState.angle < -45) {
+          if (dragState.angle < -25 || dx < -35) {
             goToPage(currentPage + 1);
           }
         } else if (dragState.direction === 'backward') {
-          if (dragState.angle > -135) {
+          if (dragState.angle > -155 || dx > 35) {
             goToPage(currentPage - 1);
           }
         }
       } else {
         if (dragState.direction === 'forward') {
-          if (dragState.angle < -90) {
+          if (dragState.angle < -90 || dx < -50) {
             nextPage();
           }
         } else if (dragState.direction === 'backward') {
-          if (dragState.angle > -90) {
+          if (dragState.angle > -90 || dx > 50) {
             prevPage();
           }
+        }
+      }
+    } else if (d.intent === null && !d.isDragging && Math.abs(dx) < 10 && Math.abs(dy) < 10) {
+      // Tap on mobile
+      if (isMobile) {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        if (clickX >= rect.width / 2) {
+          nextPage();
+        } else {
+          prevPage();
         }
       }
     }
