@@ -24,9 +24,14 @@ import {
   FaUserCheck,
   FaSchool,
   FaFileSignature,
+  FaWhatsapp,
+  FaStar,
 } from 'react-icons/fa6';
 
 export const pagesData = [
+  /* ==========================================================================
+     Page 0: Front Cover (Sheet 0 Front)
+     ========================================================================== */
   {
     id: 'cover',
     hash: 'cover',
@@ -61,6 +66,10 @@ export const pagesData = [
       </div>
     ),
   },
+
+  /* ==========================================================================
+     Page 1: Contents / Table of Contents (Sheet 0 Back)
+     ========================================================================== */
   {
     id: 'contents',
     hash: 'contents',
@@ -69,12 +78,14 @@ export const pagesData = [
     render: ({ goToPage }) => {
       const toc = [
         { page: 2, num: '01', title: 'About Me', hash: 'about' },
-        { page: 3, num: '02', title: 'Education', hash: 'education' },
-        { page: 4, num: '03', title: 'Experience', hash: 'experience' },
-        { page: 5, num: '04', title: 'Skills', hash: 'skills' },
-        { page: 6, num: '05', title: 'Certificates & Honors', hash: 'certificates' },
-        { page: 7, num: '06', title: 'Career Goals & Referees', hash: 'goals' },
-        { page: 8, num: '07', title: 'Contact Me', hash: 'contact' },
+        { page: 3, num: '02', title: 'Education & Qualifications', hash: 'education' },
+        { page: 4, num: '03', title: 'Work Experience – Corporate', hash: 'experience' },
+        { page: 5, num: '04', title: 'Work Experience – Foundations', hash: 'experience-2' },
+        { page: 6, num: '05', title: 'Key Skills & Competencies', hash: 'skills' },
+        { page: 7, num: '06', title: 'Certificates & Honors', hash: 'certificates' },
+        { page: 8, num: '07', title: 'Career Goals & Vision', hash: 'goals' },
+        { page: 9, num: '08', title: 'Professional Referees', hash: 'referees' },
+        { page: 10, num: '09', title: 'Contact Me & Connect', hash: 'contact' },
       ];
 
       return (
@@ -115,6 +126,10 @@ export const pagesData = [
       );
     },
   },
+
+  /* ==========================================================================
+     Page 2: About Me (Sheet 1 Front)
+     ========================================================================== */
   {
     id: 'about',
     hash: 'about',
@@ -184,6 +199,10 @@ export const pagesData = [
       </article>
     ),
   },
+
+  /* ==========================================================================
+     Page 3: Education & Qualifications (Sheet 1 Back)
+     ========================================================================== */
   {
     id: 'education',
     hash: 'education',
@@ -226,7 +245,7 @@ export const pagesData = [
             </div>
           </div>
 
-          <div className="edu-block" style={{ marginTop: '16px' }}>
+          <div className="edu-block">
             <div className="edu-block-title">
               <FaSchool className="edu-main-icon" />
               <h3>Secondary Education</h3>
@@ -236,7 +255,7 @@ export const pagesData = [
               <div className="edu-badge small">A/L</div>
               <div className="edu-details">
                 <h4>G.C.E. Advanced Level</h4>
-                <p className="edu-institution">Completed in 2023</p>
+                <p className="edu-institution">Successfully Completed in 2023</p>
               </div>
             </div>
 
@@ -244,7 +263,7 @@ export const pagesData = [
               <div className="edu-badge small">O/L</div>
               <div className="edu-details">
                 <h4>G.C.E. Ordinary Level</h4>
-                <p className="edu-institution">Completed in 2020</p>
+                <p className="edu-institution">Successfully Completed in 2020</p>
               </div>
             </div>
           </div>
@@ -255,24 +274,28 @@ export const pagesData = [
       </article>
     ),
   },
+
+  /* ==========================================================================
+     Page 4: Work Experience I – Corporate Roles (Sheet 2 Front)
+     ========================================================================== */
   {
     id: 'experience',
     hash: 'experience',
-    title: 'Experience',
+    title: 'Work Experience I',
     pageNum: 4,
-    render: () => (
+    render: ({ goToPage }) => (
       <article className="book-page-body" id="experience">
         <header className="page-header">
-          <span className="page-section-num">SECTION 03</span>
+          <span className="page-section-num">SECTION 03 · PART 1</span>
           <h2 className="page-heading">Work Experience</h2>
           <div className="page-header-rule" />
         </header>
-        <div className="page-content experience-scroll-container">
-          {/* Role 1 */}
+        <div className="page-content">
+          {/* Role 1: Current Executive Position */}
           <div className="timeline-card current">
             <div className="timeline-header">
               <div className="timeline-role-group">
-                <span className="timeline-tag current">CURRENT ROLE</span>
+                <span className="timeline-tag current">CURRENT POSITION</span>
                 <h3 className="timeline-role">HR Executive</h3>
                 <h4 className="timeline-company">
                   <FaBuilding className="timeline-inline-ic" /> Koombiyo Delivery (Pvt) Ltd
@@ -292,7 +315,7 @@ export const pagesData = [
               </li>
               <li>
                 <FaCircleCheck className="bullet-ic" />
-                <span>Prepare and issue appointment letters and maintain complete employment documentation.</span>
+                <span>Prepare and issue appointment letters and maintain employment documentation.</span>
               </li>
               <li>
                 <FaCircleCheck className="bullet-ic" />
@@ -304,20 +327,12 @@ export const pagesData = [
               </li>
               <li>
                 <FaCircleCheck className="bullet-ic" />
-                <span>Handle employee grievances with active listening, coordinating resolutions with relevant teams.</span>
-              </li>
-              <li>
-                <FaCircleCheck className="bullet-ic" />
-                <span>Maintain accurate, confidential employee databases and personnel records.</span>
-              </li>
-              <li>
-                <FaCircleCheck className="bullet-ic" />
-                <span>Coordinate across departments to ensure smooth day-to-day HR administrative operations.</span>
+                <span>Handle employee grievances and coordinate smooth day-to-day HR operations.</span>
               </li>
             </ul>
           </div>
 
-          {/* Role 2 */}
+          {/* Role 2: HR Assistant */}
           <div className="timeline-card">
             <div className="timeline-header">
               <div className="timeline-role-group">
@@ -336,27 +351,61 @@ export const pagesData = [
             <ul className="timeline-bullets">
               <li>
                 <FaCircleCheck className="bullet-ic" />
-                <span><strong>Attendance & Payroll:</strong> Monitored biometric attendance records and provided payroll support.</span>
+                <span><strong>Attendance & Payroll:</strong> Monitored biometric records and provided payroll support.</span>
               </li>
               <li>
                 <FaCircleCheck className="bullet-ic" />
-                <span><strong>Documentation:</strong> Coordinated HR documentation and maintained comprehensive staff records.</span>
+                <span><strong>Documentation & Welfare:</strong> Coordinated staff records, grievances, and welfare management.</span>
               </li>
               <li>
                 <FaCircleCheck className="bullet-ic" />
-                <span><strong>Employee Relations:</strong> Handled employee inquiries, grievances, and supported welfare management.</span>
-              </li>
-              <li>
-                <FaCircleCheck className="bullet-ic" />
-                <span><strong>Performance & Recruitment:</strong> Facilitated performance evaluations and assisted recruitment sourcing.</span>
+                <span><strong>Performance:</strong> Facilitated performance evaluations and assisted recruitment selection.</span>
               </li>
             </ul>
           </div>
 
-          {/* Role 3 */}
+          <div className="page-continuation-hint">
+            <span>Continued on next page (Internship & Early Career)</span>
+            <button
+              type="button"
+              className="continue-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                goToPage(5);
+              }}
+            >
+              Page 5 →
+            </button>
+          </div>
+        </div>
+        <footer className="page-footer">
+          <span className="page-num">4</span>
+        </footer>
+      </article>
+    ),
+  },
+
+  /* ==========================================================================
+     Page 5: Work Experience II – Foundations & Internship (Sheet 2 Back)
+     ========================================================================== */
+  {
+    id: 'experience-2',
+    hash: 'experience-2',
+    title: 'Work Experience II',
+    pageNum: 5,
+    render: () => (
+      <article className="book-page-body" id="experience-2">
+        <header className="page-header">
+          <span className="page-section-num">SECTION 03 · PART 2</span>
+          <h2 className="page-heading">Work Experience</h2>
+          <div className="page-header-rule" />
+        </header>
+        <div className="page-content">
+          {/* Role 3: HR Intern */}
           <div className="timeline-card">
             <div className="timeline-header">
               <div className="timeline-role-group">
+                <span className="timeline-tag internship">INTERNSHIP</span>
                 <h3 className="timeline-role">HR Intern</h3>
                 <h4 className="timeline-company">
                   <FaBuilding className="timeline-inline-ic" /> DSI – D. Samson Industries (Pvt) Ltd
@@ -366,32 +415,34 @@ export const pagesData = [
                 <span className="timeline-date">
                   <FaCalendarDays /> Feb 2024 – Jan 2025
                 </span>
+                <span className="timeline-location">Galle / Colombo</span>
               </div>
             </div>
             <ul className="timeline-bullets">
               <li>
                 <FaCircleCheck className="bullet-ic" />
-                <span>Assisted in candidate resume screening and coordinated interview schedules.</span>
+                <span>Assisted candidate resume screening and coordinated interview schedules with department heads.</span>
               </li>
               <li>
                 <FaCircleCheck className="bullet-ic" />
-                <span>Maintained employee records in the HR database with high confidentiality.</span>
+                <span>Maintained accurate employee records in the HR database with absolute confidentiality.</span>
               </li>
               <li>
                 <FaCircleCheck className="bullet-ic" />
-                <span>Supported new hire onboarding, orientations, and employee engagement events.</span>
+                <span>Supported new hire onboarding, conducted orientation sessions, and organized engagement events.</span>
               </li>
               <li>
                 <FaCircleCheck className="bullet-ic" />
-                <span>Gained practical exposure to HR functions and actively practiced workplace 5S standards.</span>
+                <span>Collaborated with the HR team to update policies and actively implemented workplace 5S standards.</span>
               </li>
             </ul>
           </div>
 
-          {/* Role 4 */}
+          {/* Role 4: Office Assistant */}
           <div className="timeline-card">
             <div className="timeline-header">
               <div className="timeline-role-group">
+                <span className="timeline-tag foundation">ADMINISTRATIVE</span>
                 <h3 className="timeline-role">Office Assistant</h3>
                 <h4 className="timeline-company">
                   <FaBuilding className="timeline-inline-ic" /> Ayesh Tea Factory (Pvt) Ltd
@@ -407,26 +458,34 @@ export const pagesData = [
             <ul className="timeline-bullets">
               <li>
                 <FaCircleCheck className="bullet-ic" />
-                <span>Assisted daily operations including filing, data entry, reports, and administrative tasks.</span>
+                <span>Managed daily administrative operations, official correspondence, filing, and data entry.</span>
               </li>
               <li>
                 <FaCircleCheck className="bullet-ic" />
-                <span>Managed inter-department communications, visitor reception, and inventory logs.</span>
+                <span>Coordinated communication between departments, greeted visitors, and handled appointments.</span>
+              </li>
+              <li>
+                <FaCircleCheck className="bullet-ic" />
+                <span>Maintained inventory records, supported supply management, and assisted basic reporting tasks.</span>
               </li>
             </ul>
           </div>
         </div>
         <footer className="page-footer">
-          <span className="page-num">4</span>
+          <span className="page-num">5</span>
         </footer>
       </article>
     ),
   },
+
+  /* ==========================================================================
+     Page 6: Key Skills & Competencies (Sheet 3 Front)
+     ========================================================================== */
   {
     id: 'skills',
     hash: 'skills',
     title: 'Skills',
-    pageNum: 5,
+    pageNum: 6,
     render: () => (
       <article className="book-page-body" id="skills">
         <header className="page-header">
@@ -459,7 +518,7 @@ export const pagesData = [
                 <span className="skill-icon-wrap"><FaSitemap /></span>
                 <div>
                   <h4>5S & Workplace Organization</h4>
-                  <p>Standardized workplace organization methodology</p>
+                  <p>Standardized methodology for productive workspaces</p>
                 </div>
               </div>
               <div className="skill-card">
@@ -472,7 +531,7 @@ export const pagesData = [
             </div>
           </div>
 
-          <div className="skills-block" style={{ marginTop: '18px' }}>
+          <div className="skills-block">
             <div className="skills-category-header">
               <FaBrain className="skill-cat-icon" />
               <h3>Soft Skills & Leadership</h3>
@@ -482,31 +541,35 @@ export const pagesData = [
                 <FaUsers /> Teamwork & Collaboration
               </span>
               <span className="skill-chip">
-                <FaHandshake /> Problem Solving & Grievances
+                <FaHandshake /> Problem-Solving & Grievances
               </span>
               <span className="skill-chip">
                 <FaBrain /> Critical Thinking
               </span>
               <span className="skill-chip">
-                <FaCircleCheck /> High Attention to Detail
+                <FaCircleCheck /> Strong Attention to Detail
               </span>
               <span className="skill-chip">
-                <FaIdCard /> Confidentiality & Ethics
+                <FaIdCard /> Confidentiality & Workplace Ethics
               </span>
             </div>
           </div>
         </div>
         <footer className="page-footer">
-          <span className="page-num">5</span>
+          <span className="page-num">6</span>
         </footer>
       </article>
     ),
   },
+
+  /* ==========================================================================
+     Page 7: Certificates & Honors (Sheet 3 Back)
+     ========================================================================== */
   {
     id: 'certificates',
     hash: 'certificates',
     title: 'Certificates & Honors',
-    pageNum: 6,
+    pageNum: 7,
     render: () => (
       <article className="book-page-body" id="certificates">
         <header className="page-header">
@@ -533,14 +596,14 @@ export const pagesData = [
             </div>
           </div>
 
-          <div className="honor-block" style={{ marginTop: '16px' }}>
+          <div className="honor-block">
             <h3 className="section-subheading">Awards & Leadership Activities</h3>
             
             <div className="honor-card award">
               <FaTrophy className="honor-icon trophy" />
               <div>
                 <h4>Best Entrepreneur of Galle District</h4>
-                <p>Awarded at Step Up Leadership Camp for project excellence and venture leadership.</p>
+                <p>Awarded at Step Up Leadership Camp for project excellence and venture initiative.</p>
               </div>
             </div>
 
@@ -548,7 +611,7 @@ export const pagesData = [
               <FaMedal className="honor-icon medal" />
               <div>
                 <h4>Former School Prefect</h4>
-                <p>Elected leadership role driving student discipline, event coordination & peer mentoring.</p>
+                <p>Elected leadership driving student discipline, event coordination & peer mentoring.</p>
               </div>
             </div>
 
@@ -562,28 +625,32 @@ export const pagesData = [
           </div>
         </div>
         <footer className="page-footer">
-          <span className="page-num">6</span>
+          <span className="page-num">7</span>
         </footer>
       </article>
     ),
   },
+
+  /* ==========================================================================
+     Page 8: Career Goals & Vision (Sheet 4 Front)
+     ========================================================================== */
   {
     id: 'goals',
     hash: 'goals',
-    title: 'Career Goals & Referees',
-    pageNum: 7,
+    title: 'Career Goals',
+    pageNum: 8,
     render: () => (
       <article className="book-page-body" id="goals">
         <header className="page-header">
           <span className="page-section-num">SECTION 06</span>
-          <h2 className="page-heading">Career Goals & Referees</h2>
+          <h2 className="page-heading">Career Goals</h2>
           <div className="page-header-rule" />
         </header>
         <div className="page-content">
           <div className="goals-card">
             <div className="goals-header">
               <FaBullseye className="goals-icon" />
-              <h3>Career Aspiration</h3>
+              <h3>Professional Career Vision</h3>
             </div>
             <p>
               To leverage my hands-on HR experience in recruitment, employee
@@ -594,30 +661,90 @@ export const pagesData = [
             </p>
           </div>
 
-          <div className="referees-block" style={{ marginTop: '16px' }}>
-            <h3 className="section-subheading">Professional Referees</h3>
-            
-            <div className="referees-grid">
-              <div className="referee-card">
-                <div className="referee-avatar">
-                  <FaUserTie />
-                </div>
-                <div className="referee-info">
-                  <h4>Mr. Agith D Costa</h4>
-                  <p className="referee-title">HR Consultant</p>
+          <div className="goals-pillars-grid">
+            <div className="goal-pillar">
+              <div className="pillar-icon-wrap">
+                <FaStar className="pillar-ic" />
+              </div>
+              <div className="pillar-body">
+                <h4>People-Centric Leadership</h4>
+                <p>Foster inclusive workplace culture, transparent communication, and high employee engagement.</p>
+              </div>
+            </div>
+
+            <div className="goal-pillar">
+              <div className="pillar-icon-wrap">
+                <FaScaleBalanced className="pillar-ic" />
+              </div>
+              <div className="pillar-body">
+                <h4>Compliance & Operational Excellence</h4>
+                <p>Ensure robust adherence to labour laws, employment contracts, and modern 5S organization.</p>
+              </div>
+            </div>
+
+            <div className="goal-pillar">
+              <div className="pillar-icon-wrap">
+                <FaGraduationCap className="pillar-ic" />
+              </div>
+              <div className="pillar-body">
+                <h4>Continuous Professional Growth</h4>
+                <p>Advance chartered HRM credentials, adopting modern digital HR tools and strategic analytics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer className="page-footer">
+          <span className="page-num">8</span>
+        </footer>
+      </article>
+    ),
+  },
+
+  /* ==========================================================================
+     Page 9: Professional Referees (Sheet 4 Back)
+     ========================================================================== */
+  {
+    id: 'referees',
+    hash: 'referees',
+    title: 'Professional Referees',
+    pageNum: 9,
+    render: () => (
+      <article className="book-page-body" id="referees">
+        <header className="page-header">
+          <span className="page-section-num">SECTION 07</span>
+          <h2 className="page-heading">Referees</h2>
+          <div className="page-header-rule" />
+        </header>
+        <div className="page-content">
+          <p className="referees-lead">
+            Professional references available upon request. Direct contact
+            details for previous management and consultancy supervisors:
+          </p>
+
+          <div className="referees-list">
+            <div className="referee-card">
+              <div className="referee-avatar">
+                <FaUserTie />
+              </div>
+              <div className="referee-info">
+                <h4>Mr. Agith D Costa</h4>
+                <p className="referee-title">HR Consultant</p>
+                <div className="referee-actions">
                   <a href="tel:+94774815679" className="referee-contact">
                     <FaPhone className="referee-contact-ic" /> +94 77 481 5679
                   </a>
                 </div>
               </div>
+            </div>
 
-              <div className="referee-card">
-                <div className="referee-avatar">
-                  <FaUserTie />
-                </div>
-                <div className="referee-info">
-                  <h4>Mrs. Theja Gunasekara</h4>
-                  <p className="referee-title">HRM, Bataduwa Plant</p>
+            <div className="referee-card">
+              <div className="referee-avatar">
+                <FaUserTie />
+              </div>
+              <div className="referee-info">
+                <h4>Mrs. Theja Gunasekara</h4>
+                <p className="referee-title">HRM, Bataduwa Plant</p>
+                <div className="referee-actions">
                   <a href="tel:+94773959524" className="referee-contact">
                     <FaPhone className="referee-contact-ic" /> +94 77 395 9524
                   </a>
@@ -625,22 +752,31 @@ export const pagesData = [
               </div>
             </div>
           </div>
+
+          <div className="referee-verif-note">
+            <FaCircleCheck className="verif-ic" />
+            <span>References verified for employment background inquiries.</span>
+          </div>
         </div>
         <footer className="page-footer">
-          <span className="page-num">7</span>
+          <span className="page-num">9</span>
         </footer>
       </article>
     ),
   },
+
+  /* ==========================================================================
+     Page 10: Contact Me & Connect (Sheet 5 Front)
+     ========================================================================== */
   {
     id: 'contact',
     hash: 'contact',
     title: 'Contact Me',
-    pageNum: 8,
+    pageNum: 10,
     render: () => (
       <article className="book-page-body" id="contact">
         <header className="page-header">
-          <span className="page-section-num">SECTION 07</span>
+          <span className="page-section-num">SECTION 08</span>
           <h2 className="page-heading">Contact Me</h2>
           <div className="page-header-rule" />
         </header>
@@ -651,17 +787,24 @@ export const pagesData = [
           </p>
 
           <div className="contact-cards-grid">
-            <a href="mailto:chamodsakvithi2@gmail.com" className="contact-card">
-              <span className="contact-icon email">
-                <FaEnvelope />
+            {/* WhatsApp - Connected directly to mobile */}
+            <a
+              href="https://wa.me/94713689634"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-card highlight-whatsapp"
+            >
+              <span className="contact-icon whatsapp">
+                <FaWhatsapp />
               </span>
               <div className="contact-card-info">
-                <span className="contact-label">EMAIL ADDRESS</span>
-                <span className="contact-val">chamodsakvithi2@gmail.com</span>
+                <span className="contact-label">WHATSAPP (DIRECT CHAT)</span>
+                <span className="contact-val">+94 71 368 9634</span>
               </div>
               <FaArrowUpRightFromSquare className="contact-arrow" />
             </a>
 
+            {/* Direct Phone Call */}
             <a href="tel:0713689634" className="contact-card">
               <span className="contact-icon phone">
                 <FaPhone />
@@ -673,6 +816,19 @@ export const pagesData = [
               <FaArrowUpRightFromSquare className="contact-arrow" />
             </a>
 
+            {/* Email Address */}
+            <a href="mailto:chamodsakvithi2@gmail.com" className="contact-card">
+              <span className="contact-icon email">
+                <FaEnvelope />
+              </span>
+              <div className="contact-card-info">
+                <span className="contact-label">EMAIL ADDRESS</span>
+                <span className="contact-val">chamodsakvithi2@gmail.com</span>
+              </div>
+              <FaArrowUpRightFromSquare className="contact-arrow" />
+            </a>
+
+            {/* LinkedIn Profile */}
             <a
               href="https://linkedin.com/in/chamod-sakvithi"
               target="_blank"
@@ -689,6 +845,7 @@ export const pagesData = [
               <FaArrowUpRightFromSquare className="contact-arrow" />
             </a>
 
+            {/* Residential Address */}
             <div className="contact-card location">
               <span className="contact-icon loc">
                 <FaLocationDot />
@@ -701,11 +858,15 @@ export const pagesData = [
           </div>
         </div>
         <footer className="page-footer">
-          <span className="page-num">8</span>
+          <span className="page-num">10</span>
         </footer>
       </article>
     ),
   },
+
+  /* ==========================================================================
+     Page 11: Back Cover (Sheet 5 Back)
+     ========================================================================== */
   {
     id: 'back',
     hash: 'back',

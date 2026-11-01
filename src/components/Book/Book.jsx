@@ -11,13 +11,18 @@ const HASH_TO_PAGE = {
   about: 2,
   education: 3,
   experience: 4,
-  skills: 5,
-  certificates: 6,
-  goals: 7,
-  'career-goals': 7,
-  contact: 8,
-  back: 9,
-  'back-cover': 9,
+  'experience-1': 4,
+  'experience-2': 5,
+  skills: 6,
+  certificates: 7,
+  honors: 7,
+  goals: 8,
+  'career-goals': 8,
+  referees: 9,
+  references: 9,
+  contact: 10,
+  back: 11,
+  'back-cover': 11,
 };
 
 const PAGE_TO_HASH = [
@@ -26,9 +31,11 @@ const PAGE_TO_HASH = [
   'about',
   'education',
   'experience',
+  'experience-2',
   'skills',
   'certificates',
   'goals',
+  'referees',
   'contact',
   'back',
 ];
@@ -100,7 +107,7 @@ export default function Book({ profile, onBackHome }) {
       if (page.isCover) {
         setAnnouncement(`${page.title}`);
       } else {
-        setAnnouncement(`Page ${page.pageNum} of 8: ${page.title}`);
+        setAnnouncement(`Page ${page.pageNum} of 10: ${page.title}`);
       }
     }
   }, [currentPage]);
@@ -108,7 +115,7 @@ export default function Book({ profile, onBackHome }) {
   // Navigate to specific page
   const goToPage = useCallback(
     (targetPage, instant = false) => {
-      const page = Math.max(0, Math.min(9, targetPage));
+      const page = Math.max(0, Math.min(11, targetPage));
       if (instant) {
         setNoTransition(true);
       }
@@ -126,15 +133,15 @@ export default function Book({ profile, onBackHome }) {
   // Turn to next page / spread
   const nextPage = useCallback(() => {
     if (isMobile) {
-      if (currentPage < 9) {
+      if (currentPage < 11) {
         goToPage(currentPage + 1);
       }
     } else {
-      if (spread < 5) {
+      if (spread < 6) {
         const nextSpread = spread + 1;
         setSpread(nextSpread);
         // Target page for this spread
-        const targetPage = nextSpread === 5 ? 9 : nextSpread * 2;
+        const targetPage = nextSpread === 6 ? 11 : nextSpread * 2;
         setCurrentPage(targetPage);
         updateHash(targetPage);
       }
@@ -188,7 +195,7 @@ export default function Book({ profile, onBackHome }) {
       goToPage(0);
     } else if (e.key === 'End') {
       e.preventDefault();
-      goToPage(9);
+      goToPage(11);
     }
   };
 
@@ -276,7 +283,7 @@ export default function Book({ profile, onBackHome }) {
 
     if (isMobile) {
       // Mobile drag: dragging left turns current page away
-      if (dx < 0 && currentPage < 9) {
+      if (dx < 0 && currentPage < 11) {
         const progress = Math.max(-180, Math.min(0, (dx / halfWidth) * 180));
         setDragState({
           type: 'mobile',
@@ -296,7 +303,7 @@ export default function Book({ profile, onBackHome }) {
       }
     } else {
       // Desktop spread drag
-      if (dx < 0 && spread < 5) {
+      if (dx < 0 && spread < 6) {
         // Turning forward: sheet `spread` rotates from 0 to -180
         const angle = Math.max(-180, Math.min(0, (dx / halfWidth) * 180));
         setDragState({
@@ -390,7 +397,7 @@ export default function Book({ profile, onBackHome }) {
     if (spread === 0) {
       // Click cover -> open book
       nextPage();
-    } else if (spread === 5) {
+    } else if (spread === 6) {
       // Click back cover -> turn back
       prevPage();
     } else {
@@ -406,18 +413,18 @@ export default function Book({ profile, onBackHome }) {
   const getCounterText = () => {
     if (isMobile) {
       if (currentPage === 0) return 'Front Cover';
-      if (currentPage === 9) return 'Back Cover';
-      return `Page ${currentPage} of 8`;
+      if (currentPage === 11) return 'Back Cover';
+      return `Page ${currentPage} of 10`;
     }
     if (spread === 0) return 'Front Cover';
-    if (spread === 5) return 'Back Cover';
+    if (spread === 6) return 'Back Cover';
     const leftPage = spread * 2 - 1;
     const rightPage = spread * 2;
-    return `Pages ${leftPage}–${rightPage} of 8`;
+    return `Pages ${leftPage}–${rightPage} of 10`;
   };
 
   const isCoverCentered = spread === 0;
-  const isBackCentered = spread === 5;
+  const isBackCentered = spread === 6;
   const containerCenterClass = isCoverCentered
     ? 'centered-cover'
     : isBackCentered
@@ -543,8 +550,8 @@ export default function Book({ profile, onBackHome }) {
               {/* Spine Line */}
               <div className="book-spine-line" aria-hidden="true" />
 
-              {/* 5 Physical Sheets (leaves) */}
-              {[0, 1, 2, 3, 4].map((sheetIdx) => {
+              {/* 6 Physical Sheets (leaves) */}
+              {[0, 1, 2, 3, 4, 5].map((sheetIdx) => {
                 const frontPage = pagesData[sheetIdx * 2];
                 const backPage = pagesData[sheetIdx * 2 + 1];
 
@@ -564,9 +571,9 @@ export default function Book({ profile, onBackHome }) {
                 if (isDragging) {
                   zIndex = 50;
                 } else if (isFlipped) {
-                  zIndex = sheetIdx * 2 + 1; // Left pile: 0 at bottom, 4 on top
+                  zIndex = sheetIdx * 2 + 1; // Left pile: 0 at bottom, 5 on top
                 } else {
-                  zIndex = (5 - sheetIdx) * 2; // Right pile: 0 on top, 4 at bottom
+                  zIndex = (6 - sheetIdx) * 2; // Right pile: 0 on top, 5 at bottom
                 }
 
                 // Dynamic paper shade based on current angle
@@ -623,7 +630,7 @@ export default function Book({ profile, onBackHome }) {
           type="button"
           className="book-nav-arrow next"
           onClick={nextPage}
-          disabled={isMobile ? currentPage === 9 : spread === 5}
+          disabled={isMobile ? currentPage === 11 : spread === 6}
           aria-label="Next page"
         >
           <Icon name="chevronRight" size={20} />
