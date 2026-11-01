@@ -2,10 +2,10 @@ import Icon from '../Icon';
 
 export default function NavCard({ number, icon, title, subtitle, href }) {
   const handleClick = (e) => {
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('/') || href.startsWith('#')) {
+      e.preventDefault();
+      window.history.pushState(null, '', href);
+      window.dispatchEvent(new PopStateEvent('popstate'));
     }
   };
 
