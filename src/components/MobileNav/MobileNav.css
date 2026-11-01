@@ -27,7 +27,7 @@
     justify-content: center;
     position: fixed;
     top: 18px;
-    left: 20px;
+    left: clamp(24px, 7vw, 32px);
     width: 44px;
     height: 44px;
     border-radius: 50%;

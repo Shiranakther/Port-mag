@@ -47,7 +47,7 @@
     flex-direction: column;
     height: auto;
     min-height: 100vh;
-    padding: 85px 18px 100px 18px;
+    padding: 88px 20px 100px clamp(26px, 7.5vw, 36px);
     gap: 36px;
     overflow-x: hidden;
     overflow-y: visible;
