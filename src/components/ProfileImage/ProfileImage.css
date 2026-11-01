@@ -31,29 +31,8 @@
 }
 
 @media (max-width: 768px) {
-  .person {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    width: 124px;
-    height: 124px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top center;
-    margin: 8px auto 6px 0;
-    display: block;
-    border: 3px solid var(--color-card-border);
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
-    -webkit-mask-image: none;
-    mask-image: none;
-    z-index: 4;
-  }
-
+  .person,
   .person-fallback {
-    width: 124px;
-    height: 124px;
-    border-radius: 50%;
-    margin: 8px auto 6px 0;
-    border: 3px solid var(--color-card-border);
+    display: none !important;
   }
 }
