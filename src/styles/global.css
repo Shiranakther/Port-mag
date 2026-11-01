@@ -21,9 +21,19 @@ body {
 svg {
   width: 1em;
   height: 1em;
+}
+
+/* Custom stroke-based icons (Icon.jsx) */
+svg:not([fill="currentColor"]):not([stroke="none"]) {
   stroke: currentColor;
   fill: none;
   stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+/* Filled vector icons (such as react-icons) */
+svg[fill="currentColor"] {
+  fill: currentColor;
+  stroke: none;
 }

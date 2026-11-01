@@ -780,11 +780,27 @@
   border-radius: 6px;
 }
 
+/* Universal guarantee: All SVGs within book pages are solid brilliant white */
+.book-page-body svg {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+  stroke: none !important;
+  stroke-width: 0 !important;
+}
+
+.book-nav-arrow svg,
+.book-toolbar-btn svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
 .specialty-icon {
-  color: #64b5f6;
-  font-size: 17px;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-size: 20px;
   margin-top: 1px;
   flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
 }
 
 .specialty-item strong {
@@ -819,8 +835,10 @@
 }
 
 .edu-main-icon {
-  font-size: 17px;
-  color: #64b5f6;
+  font-size: 19px;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
 }
 
 .edu-card {
@@ -954,8 +972,9 @@
 }
 
 .timeline-inline-ic {
-  font-size: 12px;
-  color: #64b5f6;
+  font-size: 13px;
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 .timeline-meta {
@@ -971,7 +990,13 @@
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+}
+
+.timeline-date svg {
+  font-size: 12px;
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 .timeline-location {
@@ -1006,17 +1031,17 @@
   font-weight: 700;
 }
 
-/* Clearly visible bullet icons in white with glowing accent ring */
+/* Clearly visible bullet icons in solid white with sharp drop-shadow */
 .bullet-ic {
-  color: #ffffff;
-  font-size: 12.5px;
-  background: rgba(26, 123, 255, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 50%;
-  padding: 1px;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: none !important;
+  font-size: 14.5px !important;
+  min-width: 14.5px;
+  min-height: 14.5px;
   margin-top: 2px;
   flex-shrink: 0;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
 }
 
 .page-continuation-hint {
@@ -1066,8 +1091,9 @@
 }
 
 .skill-cat-icon {
-  font-size: 15px;
-  color: #64b5f6;
+  font-size: 17px;
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 .skills-grid {
@@ -1087,8 +1113,9 @@
 }
 
 .skill-icon-wrap {
-  font-size: 15px;
-  color: #64b5f6;
+  font-size: 18px;
+  color: #ffffff !important;
+  fill: #ffffff !important;
   margin-top: 1px;
   flex-shrink: 0;
 }
@@ -1127,6 +1154,12 @@
   font-weight: 600;
 }
 
+.skill-chip svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-size: 13px;
+}
+
 /* Certificates & Honors */
 .honor-block {
   margin-bottom: 10px;
@@ -1143,23 +1176,18 @@
   margin-bottom: 7px;
 }
 
-.honor-icon {
-  font-size: 17px;
+.honor-icon,
+.honor-icon.gold,
+.honor-icon.trophy,
+.honor-icon.medal,
+.honor-icon.sports {
+  font-size: 22px !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: none !important;
   flex-shrink: 0;
   margin-top: 1px;
-}
-
-.honor-icon.gold,
-.honor-icon.trophy {
-  color: #f59e0b;
-}
-
-.honor-icon.medal {
-  color: #64b5f6;
-}
-
-.honor-icon.sports {
-  color: #10b981;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7));
 }
 
 .honor-card h4 {
@@ -1205,8 +1233,9 @@
 }
 
 .goals-icon {
-  color: #64b5f6;
-  font-size: 16px;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-size: 17px;
 }
 
 .goals-pillars-grid {
@@ -1229,14 +1258,19 @@
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: rgba(26, 123, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64b5f6;
-  font-size: 12px;
   flex-shrink: 0;
   margin-top: 1px;
+}
+
+.pillar-ic {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-size: 14px;
 }
 
 .pillar-body h4 {
@@ -1282,14 +1316,20 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--color-pill-bg);
-  border: 1px solid var(--color-pill-border);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64b5f6;
-  font-size: 18px;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-size: 19px;
   flex-shrink: 0;
+}
+
+.referee-avatar svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 .referee-info h4 {
@@ -1316,14 +1356,20 @@
   align-items: center;
   gap: 6px;
   font-size: 12px;
-  color: #64b5f6;
-  text-decoration: none;
+  color: #ffffff !important;
+  text-decoration: underline;
   font-weight: 700;
 }
 
 .referee-contact:hover {
   text-decoration: underline;
   color: #90caf9;
+}
+
+.referee-contact-ic {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-size: 13px;
 }
 
 .referee-verif-note {
@@ -1340,8 +1386,9 @@
 }
 
 .verif-ic {
-  color: #10b981;
-  font-size: 14px;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-size: 15px;
   flex-shrink: 0;
 }
 
@@ -1396,22 +1443,30 @@
 }
 
 .contact-icon {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  color: #ffffff;
+  font-size: 18px;
+  color: #ffffff !important;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.contact-icon svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-size: 19px !important;
+  stroke: none !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
 .contact-icon.whatsapp {
   background: #25d366;
   color: #ffffff;
-  font-size: 19px;
-  box-shadow: 0 0 10px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.5);
 }
 .contact-icon.email { background: #1a7bff; }
 .contact-icon.phone { background: #10b981; }
@@ -1443,11 +1498,18 @@
 }
 
 .contact-arrow {
-  font-size: 12px;
-  color: #ffffff;
-  opacity: 0.7;
+  font-size: 13px !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  opacity: 1 !important;
   margin-left: auto;
   flex-shrink: 0;
+}
+
+.contact-arrow svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: none !important;
 }
 
 @media (max-width: 760px) {
