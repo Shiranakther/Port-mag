@@ -9,6 +9,7 @@ import NavCards from './components/NavCards';
 import Footer from './components/Footer';
 import Signature from './components/Signature';
 import Book from './components/Book';
+import MobileNav from './components/MobileNav';
 import profile from './data/profile';
 
 function getIsExplorePath() {
@@ -57,35 +58,36 @@ export default function App() {
     setIsExplore(false);
   };
 
-  if (isExplore) {
-    return (
-      <Layout>
-        <TopBar greeting={profile.userGreeting} />
-        <Book profile={profile} onBackHome={handleBackHome} />
-        <Footer text={profile.footerText} />
-        <Signature text={profile.signature} />
-      </Layout>
-    );
-  }
-
   return (
-    <Layout>
-      <TopBar greeting={profile.userGreeting} />
-      <ProfileImage />
-      <Hero
-        name={profile.name}
-        role={profile.role}
-        subtitle={profile.subtitle}
-        quote={profile.quote}
-        welcomeText={profile.welcomeText}
-        ctaLabel={profile.ctaLabel}
-        ctaHref={profile.ctaHref}
-      />
-      <StatsBar stats={profile.stats} />
-      <ScriptNote text={profile.scriptNote} />
-      <NavCards cards={profile.cards} />
-      <Footer text={profile.footerText} />
-      <Signature text={profile.signature} />
-    </Layout>
+    <>
+      <MobileNav cards={profile.cards} onNavigateHome={handleBackHome} />
+      {isExplore ? (
+        <Layout>
+          <TopBar greeting={profile.userGreeting} />
+          <Book profile={profile} onBackHome={handleBackHome} />
+          <Footer text={profile.footerText} />
+          <Signature text={profile.signature} />
+        </Layout>
+      ) : (
+        <Layout>
+          <TopBar greeting={profile.userGreeting} />
+          <ProfileImage />
+          <Hero
+            name={profile.name}
+            role={profile.role}
+            subtitle={profile.subtitle}
+            quote={profile.quote}
+            welcomeText={profile.welcomeText}
+            ctaLabel={profile.ctaLabel}
+            ctaHref={profile.ctaHref}
+          />
+          <StatsBar stats={profile.stats} />
+          <ScriptNote text={profile.scriptNote} />
+          <NavCards cards={profile.cards} />
+          <Footer text={profile.footerText} />
+          <Signature text={profile.signature} />
+        </Layout>
+      )}
+    </>
   );
 }
