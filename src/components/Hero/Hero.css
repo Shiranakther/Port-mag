@@ -98,3 +98,74 @@ h1 span {
     top: 110px;
   }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 8px;
+  }
+
+  .welcome {
+    gap: 14px;
+    margin-bottom: 18px;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    flex-wrap: wrap;
+  }
+
+  .welcome::before {
+    width: 38px;
+    height: 2px;
+  }
+
+  h1 {
+    font-size: clamp(34px, 9vw, 48px);
+    line-height: 1.04;
+    letter-spacing: 0.01em;
+  }
+
+  h1 span {
+    margin-top: 4px;
+  }
+
+  .role {
+    margin-top: 18px;
+    font-size: clamp(15px, 4vw, 18px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .role-divider {
+    display: none;
+  }
+
+  .quote {
+    margin-top: 20px;
+    font-size: clamp(14px, 3.6vw, 16px);
+    line-height: 1.5;
+    padding-left: 14px;
+    border-left: 2px solid var(--color-primary);
+  }
+
+  .quote b {
+    padding-left: 0;
+  }
+
+  .cta {
+    margin-top: 26px;
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    padding: 14px 22px;
+    font-size: 16px;
+    min-height: 48px;
+  }
+}

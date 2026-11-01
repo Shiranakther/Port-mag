@@ -21,3 +21,23 @@
   height: 1px;
   background: var(--color-text-footer);
 }
+
+@media (max-width: 768px) {
+  .foot {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    gap: 16px;
+    margin-top: 28px;
+    padding: 0 10px;
+    flex-wrap: wrap;
+  }
+
+  .foot::before,
+  .foot::after {
+    width: 24px;
+  }
+}

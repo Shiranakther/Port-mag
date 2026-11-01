@@ -45,3 +45,48 @@
     row-gap: 20px;
   }
 }
+
+@media (max-width: 768px) {
+  .stats {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 14px;
+    z-index: 5;
+  }
+
+  .stat {
+    padding: 14px 16px;
+    border: 1px solid var(--color-card-border);
+    border-radius: 10px;
+    background: var(--color-card-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    min-width: 0;
+  }
+
+  .stat:first-child {
+    border: 1px solid var(--color-card-border);
+    padding-left: 16px;
+  }
+
+  .stat svg {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: var(--color-accent-light);
+  }
+
+  .stat b {
+    font-size: 13.5px;
+    word-break: break-word;
+  }
+
+  .stat small {
+    font-size: 11.5px;
+  }
+}
